@@ -80,53 +80,6 @@ const AdminHeader = ({
               </svg>
             </div>
           </Link>
-          {status === 'loading' || (
-            <div className="flex items-center md:order-2">
-              <button
-                type="button"
-                className="mr-3 flex items-center rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600 md:mr-0"
-                id="user-menu-button"
-                aria-expanded="false"
-                data-dropdown-toggle="dropdown"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                <span className="sr-only">Open user menu</span>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className="h-8 w-8 rounded-full"
-                  src={image || ''}
-                  alt="user"
-                />
-              </button>
-              <div
-                className={`right-0 top-[60px] z-50 my-4 w-full list-none divide-y divide-gray-100 rounded-br rounded-bl bg-white text-base shadow md:-right-0 md:top-[52px] md:w-auto ${
-                  isOpen ? 'block' : 'hidden'
-                }`}
-                id="dropdown"
-                style={{
-                  position: 'absolute',
-                  margin: '0px'
-                }}
-              >
-                <div className="py-3 px-4">
-                  <span className="block text-sm text-gray-900">{name}</span>
-                  <span className="block truncate text-sm font-medium text-gray-500">
-                    {email}
-                  </span>
-                </div>
-                <ul className="py-1" aria-labelledby="dropdown">
-                  <li>
-                    <a
-                      className="block cursor-pointer py-2 px-4 text-sm text-gray-700 hover:bg-gray-100"
-                      onClick={() => ostSignOut()}
-                    >
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          )}
         </div>
       </nav>
     </>

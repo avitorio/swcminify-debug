@@ -13,14 +13,9 @@ import { initializeApollo, useApollo } from '../utils/apollo'
 import { getLoginSession } from '../utils/auth/auth'
 import { envVars, EnvVarsType } from '../utils/envVarsCheck'
 import FourOhFour from './404'
-import NewCollection from './new-collection'
 import Collections from './collections'
-import EditDocument from './edit-document'
-import List from './list'
 import Login from './login'
-import Settings from './settings'
 import Welcome from './welcome'
-import AddCustomField from './add-custom-field'
 
 type OutstaticProps = {
   missingEnvVars: EnvVarsType | false
@@ -39,7 +34,6 @@ type OutstaticProps = {
 }
 
 const defaultPages: { [key: string]: ReactElement | undefined } = {
-  settings: <Settings />,
   collections: undefined
 }
 
@@ -83,25 +77,7 @@ export const Outstatic = ({ missingEnvVars, providerData }: OutstaticProps) => {
 
   const isContent = slug && collections.includes(slug)
 
-  return (
-    <OutstaticProvider
-      {...providerData}
-      pages={pages}
-      collections={collections}
-      addPage={addPage}
-      removePage={removePage}
-    >
-      <ApolloProvider client={client}>
-        {!slug && <Collections />}
-        {slug2 && isContent && <EditDocument collection={slug} />}
-        {!slug2 && isContent ? <List collection={slug} /> : defaultPages[slug]}
-        {(slug === 'collections' && collections.includes(slug2) && (
-          <AddCustomField collection={slug2} />
-        )) ||
-          (!!slug2 && !isContent && <NewCollection />)}
-      </ApolloProvider>
-    </OutstaticProvider>
-  )
+  return <Collections />
 }
 
 export const OstSSP: GetServerSideProps = async ({ req }) => {

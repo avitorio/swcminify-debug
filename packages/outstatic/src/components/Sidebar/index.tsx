@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen = false }: SidebarProps) => {
             </Link>
           </li>
           <>
-            {collections.map((collection) => (
+            {['pages'].map((collection) => (
               <li key={collection}>
                 <Link href={`/outstatic/${collection}`}>
                   <div className="flex items-center rounded-lg p-2 text-base font-normal text-gray-900 hover:bg-gray-100 cursor-pointer">

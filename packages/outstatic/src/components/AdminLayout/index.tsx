@@ -19,18 +19,9 @@ export default function AdminLayout({
   settings,
   title
 }: AdminLayoutProps) {
-  const { session, status } = useOstSession()
-  const { push, asPath } = useRouter()
   const [openSidebar, setOpenSidebar] = useState(false)
   const toggleSidebar = () => {
     setOpenSidebar(!openSidebar)
-  }
-
-  if (status === 'unauthenticated') {
-    if (typeof window !== 'undefined') {
-      push(`/outstatic/?callbackUrl=${asPath}`)
-    }
-    return null
   }
 
   return (
@@ -39,13 +30,8 @@ export default function AdminLayout({
         <title>{title ? `${title} | Outstatic` : 'Outstatic'}</title>
       </Head>
       <div id="outstatic">
-        {status === 'loading' ? null : (
+        {false ? null : (
           <div className="flex h-screen flex-col bg-white text-black">
-            <AdminHeader
-              {...session?.user}
-              status={status}
-              toggleSidebar={toggleSidebar}
-            />
             <div className="flex grow flex-col-reverse justify-between md:flex-row">
               <Sidebar isOpen={openSidebar} />
               <main className="w-auto flex-auto p-5 md:p-10 bg-white max-h-[calc(100vh-53px)] overflow-y-scroll scrollbar-hide">
