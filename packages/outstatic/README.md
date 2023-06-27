@@ -5,7 +5,9 @@ Minification ends up creating the same variable twice, once as a `var` and secon
 This error started with `next@v13.1.7-canary.9` more information here: https://github.com/avitorio/outstatic/issues/109
 
 Main directories:
+
 `/apps/dev`: Next.js install using outstatic package
+
 `/packages/outstatic`: The outstatic package
 
 ## Steps to reproduce the error
