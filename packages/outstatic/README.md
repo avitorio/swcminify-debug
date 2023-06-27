@@ -20,9 +20,9 @@ Main directories:
 - Visit `http://localhost:3000/outstatic`
 
 Check the console, you should see this error:
-`Uncaught SyntaxError: Identifier `eo` has already been declared`
+`Uncaught SyntaxError: Identifier eo has already been declared`
 
-The error seems to happen in this line of react-hook-form: https://github.com/react-hook-form/react-hook-form/blob/27ac86d4819a0a231a9669317c62649d8f65d27d/src/logic/createFormControl.ts#L984C11-L984C11
+Here's the variable that's being duplicated: https://github.com/react-hook-form/react-hook-form/blob/27ac86d4819a0a231a9669317c62649d8f65d27d/src/logic/createFormControl.ts#L987
 
 The variable `fieldRef` is minified but declared twice. Minified it looks like this, in this case `eo`:
 
