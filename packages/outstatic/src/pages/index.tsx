@@ -2,6 +2,7 @@ import { GetServerSideProps } from 'next'
 import { useFormContext } from 'react-hook-form'
 
 export const Outstatic = () => {
+  // removing the import below fixes the issue
   const form = useFormContext()
   return (
     <>
